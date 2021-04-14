@@ -11,7 +11,7 @@ public class Quatro {
     private Speler speler1;
     private Speler speler2;
 
-    private Settings settings;
+    private Settings settings; ///commmnt
 
 
     public Quatro() {
