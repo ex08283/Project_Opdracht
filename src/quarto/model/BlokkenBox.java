@@ -7,7 +7,7 @@ import static quarto.model.Blok.BlokVulling;
 import static quarto.model.Blok.BlokVorm;
 import static quarto.model.Blok.BlokKleur;
 import static quarto.model.Blok.BlokGrootte;
-
+//dela
 public class BlokkenBox {
     private final Set<Blok> blokSet;
 

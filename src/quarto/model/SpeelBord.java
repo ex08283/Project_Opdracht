@@ -3,7 +3,7 @@ package quarto.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+// dela
 public class SpeelBord {
     private final int ROW = 4;
     private final int COLUMN = 4;

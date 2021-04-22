@@ -1,12 +1,12 @@
 package quarto.model;
-
+//dela
 public class Blok {
     public enum BlokKleur {
         DONKER("donker"), LICHT("licht");
 
         private String naam;
 
-        private BlokKleur(String naam) {
+        BlokKleur(String naam) {
             this.naam = naam;
         }
 
@@ -21,7 +21,7 @@ public class Blok {
 
         private String naam;
 
-        private BlokVorm(String naam) {
+        BlokVorm(String naam) {
             this.naam = naam;
         }
 
@@ -36,7 +36,7 @@ public class Blok {
 
         private String naam;
 
-        private BlokVulling(String naam) {
+        BlokVulling(String naam) {
             this.naam = naam;
         }
 
@@ -51,7 +51,7 @@ public class Blok {
 
         private String naam;
 
-        private BlokGrootte(String naam) {
+        BlokGrootte(String naam) {
             this.naam = naam;
         }
 

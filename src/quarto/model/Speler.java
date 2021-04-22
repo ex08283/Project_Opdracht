@@ -1,5 +1,5 @@
 package quarto.model;
-
+//dela
 public class Speler {
     private String naam;
     private Ranking ranking;
