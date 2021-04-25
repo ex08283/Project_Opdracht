@@ -1,129 +1,58 @@
 package quarto.model;
+
+import java.util.Objects;
+
 //dela
 public class Blok {
-    public enum BlokKleur {
-        DONKER("donker"), LICHT("licht");
+    public enum BlokColor { DARK, LIGHT}
 
-        private String naam;
+    public enum BlokShape {ROUND, SQUARE}
 
-        BlokKleur(String naam) {
-            this.naam = naam;
-        }
+    public enum BlokFilling {FULL, EMPTY}
 
-        @Override
-        public String toString() {
-            return naam;
-        }
-    }
-
-    public enum BlokVorm {
-        ROND("rond"), VIERKANT("vierkant");
-
-        private String naam;
-
-        BlokVorm(String naam) {
-            this.naam = naam;
-        }
-
-        @Override
-        public String toString() {
-            return naam;
-        }
-    }
-
-    public enum BlokVulling {
-        VOL("vol"), HOL("hol");
-
-        private String naam;
-
-        BlokVulling(String naam) {
-            this.naam = naam;
-        }
-
-        @Override
-        public String toString() {
-            return naam;
-        }
-    }
-
-    public enum BlokGrootte {
-        GROOT("groot"), KLEIN("klein");
-
-        private String naam;
-
-        BlokGrootte(String naam) {
-            this.naam = naam;
-        }
-
-        @Override
-        public String toString() {
-            return naam;
-        }
-    }
+    public enum BlokSize { BIG, SMALL}
     //private static final Random random = new Random();
+    private final BlokSize size;
+    private final BlokColor color;
+    private final BlokShape shape;
+    private final BlokFilling filling;
 
-    private final BlokGrootte grootte;
-    private final BlokKleur kleur;
-    private final BlokVorm vorm;
-    private final BlokVulling vulling;
-
-
-    public Blok(BlokGrootte grootte, BlokKleur kleur, BlokVorm vorm, BlokVulling vulling) {
-        this.grootte = grootte;
-        this.kleur = kleur;
-        this.vorm = vorm;
-        this.vulling = vulling;
+    public Blok(BlokSize size, BlokColor color, BlokShape shape, BlokFilling filling) {
+        this.size = size;
+        this.color = color;
+        this.shape = shape;
+        this.filling = filling;
     }
-
-    public BlokGrootte getGrootte() {
-        return grootte;
+    public BlokSize getSize() {
+        return size;
     }
-
-    public BlokKleur getKleur() {
-        return kleur;
+    public BlokColor getColor() {
+        return color;
     }
-
-    public BlokVorm getVorm() {
-        return vorm;
+    public BlokShape getShape() {
+        return shape;
     }
-
-    public BlokVulling getVulling() {
-        return vulling;
+    public BlokFilling getFilling() {
+        return filling;
     }
-
 
     public String toString() {
-        return kleur + " " + vulling + " " + grootte + " " + vorm;
+        return size + " " + color + " " + shape + " " + filling;
     }
 
-
-
-
-
-    /*
-
-       public void setKaart(KaartKleur kleur, KaartWaarde waarde) {
-        this.kleur = kleur;
-        this.waarde = waarde;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Blok blok = (Blok) o;
+        return getSize() == blok.getSize() &&
+                getColor() == blok.getColor() &&
+                getShape() == blok.getShape() &&
+                getFilling() == blok.getFilling();
     }
 
-    public void maakWillekeurigeKaart() {
-        KaartKleur[] kleuren = KaartKleur.values();
-        kleur = kleuren[random.nextInt(kleuren.length)];
-
-        KaartWaarde[] waarden = KaartWaarde.values();
-        waarde = waarden[random.nextInt(waarden.length)];
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSize(), getColor(), getShape(), getFilling());
     }
-
-    public String toonKaart() {
-        String deWaarde = waarde.toString();
-        if (waarde.ordinal() < 9) {
-            deWaarde = Integer.toString(waarde.getKaartWaarde());
-        }
-        return kleur + " " + deWaarde;
-    }
-
-     */
-
-
 }

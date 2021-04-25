@@ -9,11 +9,11 @@ public class Speler {
         this.ranking = ranking;
     }
 
-    public Blok getBlok(Blok blok) {
+    public Blok chooseBlok(Blok blok) {
         return blok;
     }
 
-    public Blok plaatsBlok(Blok blok) {
+    public Blok placeBlok(Blok blok) {
         return blok;
     }
 

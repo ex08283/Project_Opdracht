@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Quatro {
+public class Quarto {
     private BlokkenBox blokkenBox;
     private SpeelBord speelBord;
     private Ranking ranking;
@@ -14,7 +14,7 @@ public class Quatro {
     private Settings settings; ///commmnt
 
 
-    public Quatro() {
+    public Quarto() {
         this.blokkenBox = blokkenBox;
         this.speelBord = speelBord;
         this.ranking = ranking;
