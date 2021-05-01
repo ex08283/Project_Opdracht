@@ -33,6 +33,7 @@ public class QuartoView extends BorderPane {
         this.settingsMI = new MenuItem("Settings");
         this.aboutMI = new MenuItem("About");
         this.infoMI = new MenuItem("Info");
+        this.blokkenBoxView = new BlokkenBoxView();
     }
 
     private void layoutNodes() {
@@ -41,6 +42,8 @@ public class QuartoView extends BorderPane {
         MenuBar menuBar = new MenuBar(menuFile,menuHelp);
         setTop(menuBar);
         setLeft(blokkenBoxView);
+
+
 
     }
 
