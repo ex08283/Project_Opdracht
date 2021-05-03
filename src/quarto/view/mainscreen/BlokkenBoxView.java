@@ -102,6 +102,71 @@ public class BlokkenBoxView extends GridPane {
         RectBlueEmptySmall.setStroke(BlUE_COLOR);
         RectBlueEmptySmall.setStrokeWidth(STROKE_WIDTH_BIG);
     }
+
+    public Circle getCircleRedFullBig() {
+        return CircleRedFullBig;
+    }
+
+    public Circle getCircleRedFullSmall() {
+        return CircleRedFullSmall;
+    }
+
+    public Circle getCircleRedEmptyBig() {
+        return CircleRedEmptyBig;
+    }
+
+    public Circle getCircleRedEmptySmall() {
+        return CircleRedEmptySmall;
+    }
+
+    public Circle getCircleBlueFullBig() {
+        return CircleBlueFullBig;
+    }
+
+    public Circle getCircleBlueFullSmall() {
+        return CircleBlueFullSmall;
+    }
+
+    public Circle getCircleBlueEmptyBig() {
+        return CircleBlueEmptyBig;
+    }
+
+    public Circle getCircleBlueEmptySmall() {
+        return CircleBlueEmptySmall;
+    }
+
+    public Rectangle getRectRedFullBig() {
+        return RectRedFullBig;
+    }
+
+    public Rectangle getRectRedFullSmall() {
+        return RectRedFullSmall;
+    }
+
+    public Rectangle getRectRedEmptyBig() {
+        return RectRedEmptyBig;
+    }
+
+    public Rectangle getRectRedEmptySmall() {
+        return RectRedEmptySmall;
+    }
+
+    public Rectangle getRectBlueFullBig() {
+        return RectBlueFullBig;
+    }
+
+    public Rectangle getRectBlueFullSmall() {
+        return RectBlueFullSmall;
+    }
+
+    public Rectangle getRectBlueEmptyBig() {
+        return RectBlueEmptyBig;
+    }
+
+    public Rectangle getRectBlueEmptySmall() {
+        return RectBlueEmptySmall;
+    }
+
     public void layoutBlokkenBox() {
         this.add(CircleRedFullBig, 0, 0);
         this.add(CircleRedFullSmall, 0, 1);
@@ -109,8 +174,8 @@ public class BlokkenBoxView extends GridPane {
         this.add(CircleRedEmptySmall, 0, 3);
         this.add(CircleBlueFullBig, 0, 4);
         this.add(CircleBlueFullSmall, 0, 5);
-        this.add(CircleBlueEmptyBig, 0, 6);
-        this.add(CircleBlueEmptySmall, 0, 7);
+        this.add(CircleBlueEmptyBig, 2, 4);
+        this.add(CircleBlueEmptySmall, 2, 5);
 
 
         this.add(RectRedFullBig, 1, 0);
@@ -119,8 +184,8 @@ public class BlokkenBoxView extends GridPane {
         this.add(RectRedEmptySmall, 1, 3);
         this.add(RectBlueFullBig, 1, 4);
         this.add(RectBlueFullSmall, 1, 5);
-        this.add(RectBlueEmptyBig, 1, 6);
-        this.add(RectBlueEmptySmall, 1, 7);
+        this.add(RectBlueEmptyBig, 3, 4);
+        this.add(RectBlueEmptySmall, 3, 5);
 
 
         GridPane.setConstraints(CircleRedFullBig, 0, 0, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
@@ -129,8 +194,8 @@ public class BlokkenBoxView extends GridPane {
         GridPane.setConstraints(CircleRedEmptySmall, 0, 3, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
         GridPane.setConstraints(CircleBlueFullBig, 0, 4, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
         GridPane.setConstraints(CircleBlueFullSmall, 0, 5, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
-        GridPane.setConstraints(CircleBlueEmptyBig, 0, 6, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
-        GridPane.setConstraints(CircleBlueEmptySmall, 0, 7, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
+        GridPane.setConstraints(CircleBlueEmptyBig, 2, 4, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
+        GridPane.setConstraints(CircleBlueEmptySmall, 2, 5, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
 
 
         GridPane.setConstraints(RectRedFullBig, 1, 0, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
@@ -139,17 +204,21 @@ public class BlokkenBoxView extends GridPane {
         GridPane.setConstraints(RectRedEmptySmall, 1, 3, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
         GridPane.setConstraints(RectBlueFullBig, 1, 4, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
         GridPane.setConstraints(RectBlueFullSmall, 1, 5, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
-        GridPane.setConstraints(RectBlueEmptyBig, 1, 6, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
-        GridPane.setConstraints(RectBlueEmptySmall, 1, 7, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
+        GridPane.setConstraints(RectBlueEmptyBig, 3, 4, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
+        GridPane.setConstraints(RectBlueEmptySmall, 3, 5, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
 
 
 
         for (int row = 0;row < 4 ; row++) {
             for (int col = 02; col < 6; col++) {
-                this.add(new Circle(BIG_SIZE, Color.GRAY), col,row);
+                Circle greyCicle = new Circle(BIG_SIZE, Color.GRAY);
+                this.add(greyCicle, col,row);
+                GridPane.setConstraints(greyCicle, col, row, 1, 1, HPos.CENTER, VPos.CENTER, Priority.ALWAYS, Priority.ALWAYS);
             }
 
         }
+
+
 
     }
 

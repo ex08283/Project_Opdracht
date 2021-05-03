@@ -3,17 +3,18 @@ package quarto.model;
 public class Speler {
     private String naam;
     private Ranking ranking;
+    Blok blok;
 
     public Speler(String naam, Ranking ranking) {
         this.naam = naam;
         this.ranking = ranking;
     }
 
-    public Blok chooseBlok(Blok blok) {
-        return blok;
+    public void chooseBlok(Blok blok) {
+        this.blok = blok;
     }
 
-    public Blok placeBlok(Blok blok) {
+    public Blok getBlok() {
         return blok;
     }
 

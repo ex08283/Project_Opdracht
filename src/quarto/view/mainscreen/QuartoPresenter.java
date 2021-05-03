@@ -1,16 +1,24 @@
 package quarto.view.mainscreen;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import quarto.model.Blok.*;
+import quarto.model.Blok;
 import quarto.model.Quarto;
 import quarto.view.UISettings;
 import quarto.view.about.AboutScreenPresenter;
@@ -29,11 +37,12 @@ import java.util.Formatter;
 import java.util.List;
 
 
+
 public class QuartoPresenter {
 
-    private Quarto model;
-    private QuartoView view;
-    private UISettings uiSettings;
+    private final Quarto model;
+    private final QuartoView view;
+    private final UISettings uiSettings;
 
     public QuartoPresenter(Quarto model, QuartoView view, UISettings uiSettings) {
         this.model = model;
@@ -226,6 +235,63 @@ public class QuartoPresenter {
                 }
                 infoScreenStage.showAndWait();
             }});
+        view.getBlokkenBoxView().getCircleBlueEmptyBig().setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                removeNodeByRowColumnIndex(4,2, view.getBlokkenBoxView());
+                model.getSpeler1().chooseBlok(new Blok(BlokSize.BIG,BlokColor.DARK, BlokShape.ROUND, BlokFilling.EMPTY ));
+            }
+        });
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 2; j < 6; j++) {
+                getNodeByRowColumnIndex(i,j,view.getBlokkenBoxView()).setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+//                        Node node = (Node) mouseEvent.getSource();
+                        view.getBlokkenBoxView().getChildren().remove((Node) mouseEvent.getSource());
+                        int rowIndex = GridPane.getRowIndex((Node) mouseEvent.getSource());
+                        int colIndex = GridPane.getColumnIndex((Node) mouseEvent.getSource());
+                        view.getBlokkenBoxView().add(view.getBlokkenBoxView().getCircleBlueEmptyBig(),colIndex,rowIndex);
+
+
+
+                    }
+                });
+
+            }
+        }
+
+
+
+    }
+
+    public Node getNodeByRowColumnIndex (final int row, final int column, GridPane gridPane) {
+        Node result = null;
+        ObservableList<Node> childrens = gridPane.getChildren();
+
+        for (Node node : childrens) {
+            if(GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == column) {
+                result = node;
+                break;
+            }
+        }
+
+        return result;
+    }
+
+    public Node removeNodeByRowColumnIndex (final int row, final int column, GridPane gridPane) {
+        Node result = null;
+        ObservableList<Node> childrens = gridPane.getChildren();
+
+        for (Node node : childrens) {
+            if(GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == column) {
+                result = node;
+                gridPane.getChildren().remove(result);
+            }
+        }
+
+        return result;
     }
 
     public void windowsHandler() {

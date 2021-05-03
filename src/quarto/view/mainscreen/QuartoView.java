@@ -41,10 +41,14 @@ public class QuartoView extends BorderPane {
         Menu menuHelp = new Menu("Help",null, aboutMI, infoMI);
         MenuBar menuBar = new MenuBar(menuFile,menuHelp);
         setTop(menuBar);
-        setLeft(blokkenBoxView);
+        setCenter(blokkenBoxView);
 
 
 
+    }
+
+    public BlokkenBoxView getBlokkenBoxView() {
+        return blokkenBoxView;
     }
 
     MenuItem getExitItem() {return exitMI;}

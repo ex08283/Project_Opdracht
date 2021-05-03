@@ -5,10 +5,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
-import quarto.model.Blok.BlokSize;
-import quarto.model.Blok.BlokFilling;
-import quarto.model.Blok.BlokShape;
-import quarto.model.Blok.BlokColor;
+import quarto.model.Blok.*;
 import quarto.model.Blok;
 import quarto.model.BlokkenBox;
 import quarto.model.SpeelBord;
@@ -38,7 +35,7 @@ public class TestSpeelBord {
 
         System.out.println(blokSet.size());
 
-        blokSet.remove(new Blok(BlokSize.BIG, Blok.BlokColor.DARK, Blok.BlokShape.ROUND, Blok.BlokFilling.EMPTY));
+        blokSet.remove(new Blok(BlokSize.BIG, BlokColor.DARK, BlokShape.ROUND, BlokFilling.EMPTY));
 
         System.out.println(blokSet.size());
 

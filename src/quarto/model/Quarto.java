@@ -15,7 +15,7 @@ public class Quarto {
 
 
     public Quarto() {
-        this.blokkenBox = blokkenBox;
+        this.blokkenBox = new BlokkenBox();
         this.speelBord = speelBord;
         this.ranking = ranking;
         this.speler1 = speler1;
@@ -47,10 +47,11 @@ public class Quarto {
 
     }
 
+    public Speler getSpeler1() {
+        return speler1;
+    }
 
-
-
-
-
-
+    public Speler getSpeler2() {
+        return speler2;
+    }
 }
